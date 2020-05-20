@@ -1,1 +1,1 @@
-web: gunicorn mosaic-app-v2.nosync.wsgi
+web: gunicorn mosaic-app-v2.wsgi
