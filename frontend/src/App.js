@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import { Segment, Form, Image, Header, Container } from "semantic-ui-react";
@@ -6,7 +6,7 @@ import Navbar from './componenets/navbar'
 import Gallery from './componenets/gallery'
 import Mosaic from './componenets/mosaic'
 import './App.css'
-import cookie from "react-cookies"
+
 
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
@@ -38,6 +38,7 @@ function App() {
         info: "block",
         loader: "none",
         display: "none",
+        placeholder: "none",
         gallery: [
             "static/mosaic/mosaic1.jpg",
             "static/mosaic/mosaic2.jpg",
@@ -102,7 +103,12 @@ function App() {
         const res = await axios.post('/api/mosaic/', form_data, headers);
         if (res.status > 400) {
             return setImage(() => {
-                return { placeholder: "Something went wrong!" };
+                return { 
+                    ...image,
+                    info: "none",
+                    loaded: "none",
+                    display: "block",
+                    placeholder: "block" };
             });
         }
 
@@ -134,7 +140,7 @@ function App() {
                             </div>
                             <Container textAlign="center" >
                                 <div class="info" style = {{display: image.info}}>
-                                    <p>Upload a jpg image file to create a mosaic</p>
+                                    <p>Upload an image file to create a mosaic</p>
                                 </div>
                                 <div class="img" style={{display: image.display}}>
                                     <div class="loader-wrapper" id="toggle2" style = {{display:image.loader}}>
@@ -147,6 +153,9 @@ function App() {
                                     </div> 
                                     <section class="box" >
                                         <Image src={image.data.mosaic}/>
+                                        <div style = {{display:image.placeholder}}>
+                                            <p>Somthing went wrong! Please reload the page and try again.</p>
+                                        </div>
                                         <div class="dn-btn" >
                                             <a href={image.data.mosaic} target="_blank">Download and View</a>
                                         </div>
