@@ -151,9 +151,9 @@ export default function Mosaic() {
                                         </div>
                                     </div> 
                                     <section class="box" >
-                                        <p color="white">This feature is comming soon... </p>
+                                        <p color="white">This feature is coming soon... </p>
                                         <div class="dn-btn" >
-                                            <a href="" target="_blank">Thankyou</a>
+                                            <p>Thank you</p>
                                         </div>
                                     </section>
                                 </div>
