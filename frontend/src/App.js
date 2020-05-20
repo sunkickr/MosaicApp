@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
-import { Segment, Form, Image, Header, Container } from "semantic-ui-react";
+import { Segment, Form, Image, Header, Container, Button } from "semantic-ui-react";
 import Navbar from './componenets/navbar'
 import Gallery from './componenets/gallery'
 import Mosaic from './componenets/mosaic'
@@ -27,6 +27,10 @@ function getCookie(name) {
     return cookieValue;
 }
 var csrftoken = getCookie('csrftoken');
+
+const handleRefresh = () => {
+    window.location.reload();
+}
 
 function App() {
     const [image, setImage] = useState({
@@ -158,6 +162,9 @@ function App() {
                                         </div>
                                         <div class="dn-btn" >
                                             <a href={image.data.mosaic} target="_blank">Download and View</a>
+                                        </div>
+                                        <div class="btn">
+                                            <Button fluid onClick={handleRefresh}>Make Another Mosaic</Button>
                                         </div>
                                     </section>
                                 </div>

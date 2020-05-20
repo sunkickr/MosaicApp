@@ -86,6 +86,10 @@ html {
   background: var(--light);
 }
 
+.btn {
+  padding-top: 1rem;
+}
+
 .loader-wrapper {
   padding-top: 7rem;
   padding-bottom: 5rem;
