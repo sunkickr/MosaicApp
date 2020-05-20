@@ -99,7 +99,7 @@ function App() {
                 'content-type': 'multipart/form-data',
             }
         }
-        const res = await axios.post('http://localhost:8000/api/mosaic/', form_data, headers);
+        const res = await axios.post('/api/mosaic/', form_data, headers);
         if (res.status > 400) {
             return setImage(() => {
                 return { placeholder: "Something went wrong!" };
