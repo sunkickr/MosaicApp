@@ -62,5 +62,4 @@ wcwidth==0.1.8
 whitenoise==5.0.1
 wrapt==1.11.2
 gunicorn==20.0.4
-p==19.3
-ip==19.0
+
