@@ -149,6 +149,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+if os.getcwd() == '/':
+    import dj_database_url
+    DATABASES = {
+        'default' : dj_database_url.config(default='postgres://localhost')
+    }
+
+
 # CORS_ORIGIN_WHITELIST = (
 #    'http://localhost:3000',
 # )
