@@ -1,1 +1,1 @@
-web: gunicorn mosaic-app-v2.wsgi
+web: gunicorn mosaic_app.wsgi
