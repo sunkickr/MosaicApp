@@ -106,7 +106,7 @@ function App() {
         }
         const res = await axios.post('/api/mosaic/', form_data, headers);
         if (res.status > 400) {
-            return setImage(() => {
+            setImage(() => {
                 return { 
                     ...image,
                     info: "none",
@@ -157,7 +157,7 @@ function App() {
                                     </div> 
                                     <section class="box" >
                                         <Image src={image.data.mosaic}/>
-                                        <div style = {{display:image.placeholder}}>
+                                        <div style = {{display: image.placeholder}}>
                                             <p>Somthing went wrong! Please reload the page and try again.</p>
                                         </div>
                                         <div class="dn-btn" >
